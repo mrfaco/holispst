@@ -69,7 +69,6 @@ class MateriasDomainService(MateriasDomainServiceBase):
             if self.errors==[]:
                 self.MateriasRepository.UpdateMateria(Materia.ToMateriaDTO())
             else:
-                for e in self.errors:
-                    print(e)
+                raise Exception(self.errors.__str__())
         else:
-            print("Materia with Id={0} doesn't exist in database".format(Materia.Id))
+            raise Exception("Materia with Id={0} doesn't exist in database".format(Materia.Id))

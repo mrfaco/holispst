@@ -23,4 +23,4 @@ class Materia:
                 self.Id,self.Name,self.Price,self.Stock,self.Date)
 
     def ToOutput(self):
-        return MateriaOutput(self.Id,self.Name,self.Price,self.Stock,self.Price)
+        return MateriaOutput(self.Id,self.Name,self.Price,self.Stock,self.Date)

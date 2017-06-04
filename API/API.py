@@ -22,16 +22,28 @@ def GetAllMaterias():
 @app.route('/Materias/<id>')
 def GetMateriaById(id):
      item = materiaService.GetMateriaById(id)
+     print(item)
      return jsonify(item.__dict__)
 
 @app.route('/Materias/',methods=['POST'])
 def SaveMateria():
     datos = json.loads(request.data)
     materiaInput=MateriaInput(datos)
-    print(materiaInput.Name)
+    print(materiaInput)
     materiaService.SaveMateria(materiaInput)
     return jsonify("ok")
 
-
+@app.route("/Materias/<id>",methods=['PUT'])
+def UpdateMateria(id):
+    datos=json.loads(request.data)
+    materiaInput=MateriaInput(datos)
+    print(materiaInput)
+    try:
+        materiaService.UpdateMateria(materiaInput,id)
+        return jsonify("Edited correctly")
+    except Exception as e:
+        return jsonify(e.args[0].__str__()),400
+        
+    
 if __name__=="__main__":
     app.run()

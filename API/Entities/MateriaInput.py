@@ -12,5 +12,13 @@ class MateriaInput:
         self.Price=fromDict['Price']
         self.Stock=fromDict['Stock']
 
-    def ToDomain(self):
+    def ToDomainForNew(self):
         return Materia(0,self.Name,self.Price,self.Stock,datetime.datetime.now())
+    
+    def ToDomainForUpdate(self,id):
+        return Materia(int(id),self.Name,self.Price,self.Stock,datetime.datetime.now())
+
+    def __str__(self):
+
+        return "Name: {0}, Price: {1}, Stock: {2}".format(\
+                self.Name,self.Price,self.Stock)
