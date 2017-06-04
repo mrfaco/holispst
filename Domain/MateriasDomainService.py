@@ -46,8 +46,7 @@ class MateriasDomainService(MateriasDomainServiceBase):
         if self.errors==[]:
             self.MateriasRepository.SaveMateria(Materia.ToMateriaDTO())
         else:
-            for e in self.errors:
-                print(e)
+            raise Exception(self.errors.__str__())
     
     def GetAllMaterias(self):
         returns = []

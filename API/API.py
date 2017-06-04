@@ -30,9 +30,12 @@ def SaveMateria():
     datos = json.loads(request.data)
     materiaInput=MateriaInput(datos)
     print(materiaInput)
-    materiaService.SaveMateria(materiaInput)
-    return jsonify("ok")
-
+    try:
+        materiaService.SaveMateria(materiaInput)
+        return jsonify("Materia created")
+    except Exception as e:
+        return jsonify(e.args[0].__str__()),400
+        
 @app.route("/Materias/<id>",methods=['PUT'])
 def UpdateMateria(id):
     datos=json.loads(request.data)
