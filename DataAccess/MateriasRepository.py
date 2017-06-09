@@ -1,5 +1,6 @@
 from .MateriasRepositoryBase import MateriasRepositoryBase
 import MySQLdb
+import datetime
 
 class MateriasRepository(MateriasRepositoryBase):
     def __init__(self):
@@ -23,6 +24,7 @@ class MateriasRepository(MateriasRepositoryBase):
         returns = cursor.fetchall()
         self.Connection.close()
         return returns
+        
     
     def SaveMateria(self, MateriaDTO):
         self.StartConnection()
@@ -35,12 +37,15 @@ class MateriasRepository(MateriasRepositoryBase):
         self.Connection.close()
 
     def GetAllMaterias(self):
-        self.StartConnection()
-        cursor = self.Connection.cursor()
-        cursor.execute("SELECT * FROM MATERIAS;")
-        returns=cursor.fetchall()
-        self.Connection.close()
-        return returns
+        if 0:
+            self.StartConnection()
+            cursor = self.Connection.cursor()
+            cursor.execute("SELECT * FROM MATERIAS;")
+            returns=cursor.fetchall()
+            self.Connection.close()
+            return returns
+        if 1:
+            return [(1,"hola",2,3,datetime.datetime.now()),(2,"chau",2,3,datetime.datetime.now())]
     
     def DeleteMateriaById(self,Id):
         self.StartConnection()

@@ -1,0 +1,19 @@
+<table class="table table-striped table-hover ">
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Date</th>
+    </thead>
+
+    <tbody>
+    <tr *ngFor='let mat of materias'>
+        <td>{{mat.Id}}</td>
+        <td>{{mat.Name}}</td>
+        <td>{{mat.Price}}</td>
+        <td>{{mat.Stock}}</td>
+        <td>{{mat.Date}}</td>
+    </tr>
+    </tbody>
+</table>
