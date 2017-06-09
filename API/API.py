@@ -5,12 +5,13 @@ sys.path.insert(0,parentdir)
 from Service.MateriaService import MateriaService
 from Entities.MateriaInput import MateriaInput
 import json
-
+from flask_cors import CORS
 
 materiaService = MateriaService()
 
 from flask import Flask,jsonify,request
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/Materias/')
 def GetAllMaterias():
