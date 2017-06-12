@@ -9,8 +9,8 @@ class MateriaInput:
     
     def __init__(self,fromDict):
         self.Name=fromDict['Name']
-        self.Price=fromDict['Price']
-        self.Stock=fromDict['Stock']
+        self.Price=float(fromDict['Price'])
+        self.Stock=int(fromDict['Stock'])
 
     def ToDomainForNew(self):
         return Materia(0,self.Name,self.Price,self.Stock,datetime.datetime.now())

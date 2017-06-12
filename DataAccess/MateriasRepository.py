@@ -27,14 +27,19 @@ class MateriasRepository(MateriasRepositoryBase):
         
     
     def SaveMateria(self, MateriaDTO):
-        self.StartConnection()
-        cursor = self.Connection.cursor()
-        sql="INSERT INTO MATERIAS(name,price,stock,datemodified) values('{0}',{1},{2},'{3}');"\
+        if 0:
+            self.StartConnection()
+            cursor = self.Connection.cursor()
+            sql="INSERT INTO MATERIAS(name,price,stock,datemodified) values('{0}',{1},{2},'{3}');"\
+                .format(MateriaDTO.Name,MateriaDTO.Price,MateriaDTO.Stock,MateriaDTO.Date)
+            print(sql)
+            cursor.execute(sql)
+            self.Connection.commit()
+            self.Connection.close()
+        if 1:
+            sql="INSERT INTO MATERIAS(name,price,stock,datemodified) values('{0}',{1},{2},'{3}');"\
             .format(MateriaDTO.Name,MateriaDTO.Price,MateriaDTO.Stock,MateriaDTO.Date)
-        print(sql)
-        cursor.execute(sql)
-        self.Connection.commit()
-        self.Connection.close()
+            print(sql)
 
     def GetAllMaterias(self):
         if 0:

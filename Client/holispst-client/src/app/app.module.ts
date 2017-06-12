@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import {MateriaComponent} from "./Materia/materia.component"
 import {MateriaList} from "./MateriaList/materia-list.component"
 import {Navbar} from "./Navbar/navbar.component"
+import {MateriaAdder} from "./MateriaAdder/materia-adder.component"
 
 @NgModule({
   declarations: [
     AppComponent,
     MateriaComponent,
     MateriaList,
-    Navbar
+    Navbar,
+    MateriaAdder
   ],
   imports: [
     BrowserModule,
@@ -21,6 +23,6 @@ import {Navbar} from "./Navbar/navbar.component"
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent,MateriaList,Navbar]
+  bootstrap: [AppComponent,MateriaList,Navbar,MateriaAdder]
 })
 export class AppModule { }
